@@ -1,11 +1,11 @@
 const keyAPI = '2v2aU6pUEYfXap7E6vig9pUqbHGlw3K5F4iXRdv9';
-const url = `https://api.nasa.gov/planetary/apod?api_key=${keyAPI}&date=2017-07-08`
+const url = `https://api.nasa.gov/planetary/apod?api_key=${keyAPI}&date=`
 const responseSection = document.querySelector('.returned-response');
 const btn = document.querySelector('.button');
 const input =  document.querySelector('#date');
 
-const getJSONFromUrlAPI = async () => {
-  const response = await fetch(url);
+const getJSONFromUrlAPI = async (date) => {
+  const response = await fetch(`${url}${date}`);
   const data = response.json();
 
   return data;
@@ -25,7 +25,11 @@ const getJSONFromUrlAPI = async () => {
 function createElementOfScreen({ url, explanation }) {
   const div = document.createElement('div');
   const img = document.createElement('img');
-  img.src = url;
+  if (img) {
+    img.src = url;
+  } else {
+    img.alt = 'Imagem da data'
+  }
   const p = document.createElement('p');
   p.className = 'result';
   p.innerText = explanation;
@@ -35,7 +39,6 @@ function createElementOfScreen({ url, explanation }) {
 }
 
 async function renderScreen() {
-  console.log(input.value);
   const response = await getJSONFromUrlAPI(input.value);
   responseSection.innerHTML = '';
   responseSection.appendChild(createElementOfScreen(response));
