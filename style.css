@@ -6,17 +6,25 @@
 body {
   background-color: rgb(182, 195, 212);
 }
+
 .header {
-  background-image: url(./9961c0fef5f7ed6fd6f448373bdeb472.jpg);
-  height: 80px;
+  display: flex;
+    background-image: url(./9961c0fef5f7ed6fd6f448373bdeb472.jpg);
+    height: 80px;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
 }
 
+.logo-nasa {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
 .name {
+  text-align: center;
   color: aliceblue;
   font-size:xx-large;
-  position: absolute;
-  left: 390px;
-  top: 20px;
 }
 
 .logo-trybe {
@@ -28,6 +36,9 @@ body {
 .gif {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .selection {
@@ -37,12 +48,16 @@ body {
 }
 
 .entradas {
-  position: absolute;
-  left: 420px;
-  top: 120px;
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
+
  #date {
    border: solid 1px black;
+   
  }
 
 .button {
@@ -56,12 +71,13 @@ body {
 }
 
 .result {
-  margin-top: 60px;
+  margin-top: 7px;
   text-align: center;
   font-size: larger;
 }
 
 .returned-response {
+  left: 15px;
   margin-top: 10px;
   color: black;
 }
