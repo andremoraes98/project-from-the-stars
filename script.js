@@ -1,8 +1,8 @@
 const keyAPI = '2v2aU6pUEYfXap7E6vig9pUqbHGlw3K5F4iXRdv9';
 const url = `https://api.nasa.gov/planetary/apod?api_key=${keyAPI}&date=2017-07-08`
 const responseSection = document.querySelector('.returned-response');
-const btn = document.querySelector('#button');
-const input =  document.querySelector('#input');
+const btn = document.querySelector('.button');
+const input =  document.querySelector('#date');
 
 const getJSONFromUrlAPI = async () => {
   const response = await fetch(url);
@@ -25,12 +25,10 @@ const getJSONFromUrlAPI = async () => {
 
 function createElementOfScreen({ url, explanation }) {
   const div = document.createElement('div');
-  div.className = '';
   const img = document.createElement('img');
-  img.className = '';
   img.src = url;
   const p = document.createElement('p');
-  p.className = '';
+  p.className = 'result';
   p.innerText = explanation;
   div.appendChild(img);
   div.appendChild(p);
