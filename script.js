@@ -22,7 +22,6 @@ const getJSONFromUrlAPI = async () => {
 //   p.innerHTML = explanationUrl;
 //   responseSection.appendChild(p);
 // };
-
 function createElementOfScreen({ url, explanation }) {
   const div = document.createElement('div');
   const img = document.createElement('img');
@@ -36,7 +35,9 @@ function createElementOfScreen({ url, explanation }) {
 }
 
 async function renderScreen() {
-  const response = await getJSONFromUrlAPI(input);
+  console.log(input.value);
+  const response = await getJSONFromUrlAPI(input.value);
+  responseSection.innerHTML = '';
   responseSection.appendChild(createElementOfScreen(response));
 }
 
