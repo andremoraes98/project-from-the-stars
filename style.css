@@ -35,7 +35,7 @@ body {
 
 .gif {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: stretch;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -80,6 +80,10 @@ body {
   left: 15px;
   margin-top: 10px;
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
 .footer {
