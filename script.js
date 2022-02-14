@@ -1,28 +1,16 @@
 const keyAPI = '2v2aU6pUEYfXap7E6vig9pUqbHGlw3K5F4iXRdv9';
-const url = `https://api.nasa.gov/planetary/apod?api_key=${keyAPI}&date=`
+const url = `https://api.nasa.gov/planetary/apod?api_key=${keyAPI}&start_date=`
 const responseSection = document.querySelector('.returned-response');
 const btn = document.querySelector('.button');
 const input =  document.querySelector('#date');
 
 const getJSONFromUrlAPI = async (date) => {
-  const response = await fetch(`${url}${date}`);
+  const response = await fetch(`${url}${date}&end_date=${date}`);
   const data = response.json();
 
-  console.log(data)
   return data;
 };
 
-// const putImageOnScreen = (imageUrl) => {
-//   const img = document.createElement('img');
-//   img.src = imageUrl;
-//   responseSection.appendChild(img);
-// };
-
-// const putExplanationOnScreen = (explanationUrl) => {
-//   const p = document.createElement('p');
-//   p.innerHTML = explanationUrl;
-//   responseSection.appendChild(p);
-// };
 function createElementOfScreen({ url, explanation, media_type }) {
   const div = document.createElement('div');
   div.className = 'media';
@@ -45,9 +33,16 @@ function createElementOfScreen({ url, explanation, media_type }) {
 }
 
 async function renderScreen() {
-   const response = await getJSONFromUrlAPI(input.value);
-    responseSection.innerHTML = '';
-  responseSection.appendChild(createElementOfScreen(response));
+  const response = await getJSONFromUrlAPI(input.value);
+  responseSection.innerHTML = '';
+  responseSection.appendChild(createElementOfScreen(response.map((star) => {
+    const objectOfStar = {
+      url: star.url,
+      explanation: star.explanation,
+      media_type: star.media_type,
+    };  
+    return objectOfStar
+  })[0]));
 }
 
 window.onload = async () => {
@@ -58,8 +53,8 @@ window.onload = async () => {
   btn.addEventListener('click', renderScreen)
 }
 
-module.exports = {
+/* module.exports = {
   getJSONFromUrlAPI,
   createElementOfScreen,
   renderScreen,
-};
+}; */
