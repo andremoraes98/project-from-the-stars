@@ -9,7 +9,7 @@ body {
 
 .header {
   display: flex;
-    background-image: url(./9961c0fef5f7ed6fd6f448373bdeb472.jpg);
+    background-image: url(./image/9961c0fef5f7ed6fd6f448373bdeb472.jpg);
     height: 80px;
     justify-content: center;
     align-content: stretch;
@@ -110,4 +110,9 @@ body {
 .media p {
 text-align: justify;
 text-justify: distribute-all-lines;
+}
+
+iframe {
+  width: 50%;
+  height: 350px;
 }
