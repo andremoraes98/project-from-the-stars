@@ -4,7 +4,7 @@ const url = `https://api.nasa.gov/planetary/apod?api_key=${keyAPI}&start_date=`
 const getJSONFromUrlAPI = async (date) => {
   const response = await fetch(`${url}${date}&end_date=${date}`);
   const data = response.json();
-console.log(date)
+  
   return data;
 };
 
