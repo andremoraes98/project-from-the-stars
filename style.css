@@ -63,6 +63,9 @@ body {
 .button {
   border: solid 1px black;
   cursor:pointer;
+  margin: 5px;
+  border-radius: 9px;
+  padding: 0.15rem
 }
 
 .button:hover {
@@ -95,4 +98,16 @@ body {
 
 .equipe {
   top: 20px;
+}
+
+.media {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.media p {
+text-align: justify;
+text-justify: distribute-all-lines;
 }

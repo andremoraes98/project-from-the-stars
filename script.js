@@ -8,6 +8,7 @@ const getJSONFromUrlAPI = async (date) => {
   const response = await fetch(`${url}${date}`);
   const data = response.json();
 
+  console.log(data)
   return data;
 };
 
@@ -22,25 +23,30 @@ const getJSONFromUrlAPI = async (date) => {
 //   p.innerHTML = explanationUrl;
 //   responseSection.appendChild(p);
 // };
-function createElementOfScreen({ url, explanation }) {
+function createElementOfScreen({ url, explanation, media_type }) {
   const div = document.createElement('div');
-  const img = document.createElement('img');
-  if (img) {
+  div.className = 'media';
+  if (media_type === 'image') {
+    const img = document.createElement('img');
     img.src = url;
+    img.alt = 'Imagem da data';
+    div.appendChild(img);
   } else {
-    img.alt = 'Imagem da data'
+    const img = document.createElement('iframe');
+    img.src = url;
+    img.alt = 'Vídeo da data';
+    div.appendChild(img);
   }
   const p = document.createElement('p');
   p.className = 'result';
   p.innerText = explanation;
-  div.appendChild(img);
   div.appendChild(p);
   return div;
 }
 
 async function renderScreen() {
-  const response = await getJSONFromUrlAPI(input.value);
-  responseSection.innerHTML = '';
+   const response = await getJSONFromUrlAPI(input.value);
+    responseSection.innerHTML = '';
   responseSection.appendChild(createElementOfScreen(response));
 }
 
@@ -51,3 +57,9 @@ window.onload = async () => {
   // console.log(response)
   btn.addEventListener('click', renderScreen)
 }
+
+module.exports = {
+  getJSONFromUrlAPI,
+  createElementOfScreen,
+  renderScreen,
+};

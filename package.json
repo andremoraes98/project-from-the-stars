@@ -1,0 +1,23 @@
+{
+  "name": "project-from-the-stars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andremoraes98/project-from-the-stars.git"
+  },
+  "keywords": [],
+  "author": "André Moraes, Andre Santos, Alline Franciely e Rafael Godoy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andremoraes98/project-from-the-stars/issues"
+  },
+  "homepage": "https://github.com/andremoraes98/project-from-the-stars#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
