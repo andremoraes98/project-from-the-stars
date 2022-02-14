@@ -89,6 +89,23 @@ body {
   align-items: stretch;
 }
 
+.returned-response > p {
+  border: solid 1px black;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size:medium;
+  
+}
+
+.returned-response > p:hover {
+  background-color: aliceblue;
+  -webkit-transform: scale(1.07);
+  -ms-transform: scale(1.07);
+  transform: scale(1.07);
+  cursor:text;
+}
+
 .footer {
   margin-top: 10px;
   background-color: rgb(82, 82, 167);
